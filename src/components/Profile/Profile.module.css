@@ -1,29 +1,25 @@
-.profile-tabs {
+.header {
+  padding: 2rem;
   display: flex;
   justify-content: center;
 }
 
-.profile-tabs__pg {
-  color: aliceblue;
-  margin: 0 2rem;
-  font-size: 1.2rem;
-  padding: 0.8rem;
-  border: 1px solid aliceblue;
+.list {
+  display: flex;
+  gap: 1rem;
+}
+
+.list a {
   background-color: transparent;
-  list-style: none;
-  border-radius: 2rem;
+  color: aliceblue;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid aliceblue;
+  border-radius: 1rem;
+  text-decoration: none;
 }
 
-.profile-tabs__pg:hover {
-  cursor: pointer;
-  color: aquamarine;
-  background-color: rgba(230, 176, 175, 0.5);
-}
-
-.profile-tabs__pg:active {
-  color: aquamarine;
-}
-
-.profile-tabs__tab {
-  margin-top: 2rem;
+.list a:hover,
+.list a:active,
+.list a.active {
+  background-color: rgb(63, 174, 98);
 }

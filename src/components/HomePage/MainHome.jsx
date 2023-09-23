@@ -6,6 +6,38 @@ import { useState } from "react";
 import GroupForm from "./GroupForm";
 import ButtonUI from "../UI/ButtonUI";
 
+const GROUPS = [
+  {
+    name: "Group 1",
+    id: 1,
+  },
+  {
+    name: "Group 2",
+    id: 2,
+  },
+  {
+    name: "Group 3",
+    id: 3,
+  },
+];
+
+const FRIENDS = [
+  {
+    name: "Friend 1",
+    id: 1,
+  },
+  {
+    name: "Friend 2",
+    id: 2,
+  },
+  {
+    name: "Friend 3",
+    id: 3,
+  },
+];
+
+// console.log(GROUPS);
+
 const MainHome = () => {
   const [displayForm, setDisplayForm] = useState(false);
   const showForm = () => {
@@ -18,18 +50,13 @@ const MainHome = () => {
   return (
     <div className={styles.layout}>
       <div className={styles.groups}>
-        <div className={styles["groups-cluster"]}>
-          <p className={styles["group-id"]}>Group 1</p>
-          <p className={styles["group-id"]}>Group 2</p>
-          <p className={styles["group-id"]}>Group 3</p>
-          <p className={styles["group-id"]}>Group 4</p>
-          <p className={styles["group-id"]}>Group 5</p>
-          <p className={styles["group-id"]}>Group 1</p>
-          <p className={styles["group-id"]}>Group 2</p>
-          <p className={styles["group-id"]}>Group 3</p>
-          <p className={styles["group-id"]}>Group 4</p>
-          <p className={styles["group-id"]}>Group 5</p>
-        </div>
+        <ul className={styles["groups-cluster"]}>
+          {GROUPS.map((group) => (
+            <li className={styles["group-id"]} key={group.id}>
+              <p>{group.name}</p>
+            </li>
+          ))}
+        </ul>
         <div>
           <ButtonUI onClick={showForm}>
             <FontAwesomeIcon className={styles["plus-icon"]} icon={faPlus} />
@@ -38,38 +65,17 @@ const MainHome = () => {
       </div>
       <div className={styles.characteristics}>
         <h2>Group Name</h2>
-        <div className={styles["characteristics-friends"]}>
-          <p className={styles["characteristics-friends__item"]}>Friend 1</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 2</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 3</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 4</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 5</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 1</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 2</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 3</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 4</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 5</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 1</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 2</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 3</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 4</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 5</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 1</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 2</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 3</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 4</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 5</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 1</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 2</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 3</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 4</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 5</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 1</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 2</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 3</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 4</p>
-          <p className={styles["characteristics-friends__item"]}>Friend 5</p>
-        </div>
+
+        <ul className={styles["characteristics-friends"]}>
+          {FRIENDS.map((friend) => (
+            <li
+              className={styles["characteristics-friends__item"]}
+              key={friend.id}
+            >
+              <p>{friend.name}</p>
+            </li>
+          ))}
+        </ul>
         <div className={styles["characteristics__buttons"]}>
           <ButtonUI>Add friend</ButtonUI>
           <ButtonUI>Shuffle</ButtonUI>

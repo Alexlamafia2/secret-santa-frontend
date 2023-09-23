@@ -8,16 +8,18 @@ export function checkAuthLoader() {
   return null;
 }
 
-// export function isAuthenticated() {
-//   keycloak
-//     .init({ onLoad: "check-sso" })
-//     .then((authenticated) => {
-//       // setAuthenticated(authenticated);
-//     })
-//     .catch((error) => {
-//       console.error("Keycloak initialization error:", error);
-//     });
+export function getAuthToken() {
+  const token = localStorage.getItem("1");
+  if (!token) {
+    return null;
+  }
 
-//   const authenticated = keycloak.authenticated;
-//   return authenticated;
-// }
+  return token;
+}
+
+export function tokenLoader() {
+  const token = getAuthToken();
+  localStorage.setItem(token, 1);
+
+  return token;
+}

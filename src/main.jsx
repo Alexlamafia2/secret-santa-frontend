@@ -9,6 +9,7 @@ keycloak
   .init({ onLoad: "check-sso", pkceMethod: "S256" })
   .then(() => {
     console.log(keycloak);
+    localStorage.setItem("1", keycloak.token);
     const root = ReactDOM.createRoot(document.getElementById("root"));
     root.render(<App />);
   })
